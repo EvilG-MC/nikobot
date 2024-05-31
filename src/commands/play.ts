@@ -128,7 +128,7 @@ export default class PlayCommand extends Command {
                     embeds: [
                         {
                             color: client.config.color,
-                            description: `Queued playlist [${playlist.title}](${playlist.uri}) with \`${tracks.length}\` songs!`
+                            description: `Queued playlist [${playlist.title}](${playlist.uri ?? query}) with \`${tracks.length}\` songs!`
                         }
                     ]
                 });
