@@ -1,6 +1,6 @@
 import { Client } from 'seyfert';
 import type { HinagiConfig } from '../config';
-import Configuration from '../config';
+import { Configuration } from '../config';
 
 import { YunaParser } from '../utils/parser';
 import { Manager } from './Manager';

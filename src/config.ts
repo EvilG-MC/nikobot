@@ -14,7 +14,7 @@ export interface HinagiConfig {
     };
 }
 
-const Configuration: HinagiConfig = {
+export const Configuration: HinagiConfig = {
     color: 0x2b2d31,
     prefixes: ['hina', 'h!', 'hinagi'],
     emojis: {
@@ -34,5 +34,3 @@ const Configuration: HinagiConfig = {
         }
     ]
 };
-
-export default Configuration;
