@@ -16,7 +16,8 @@ export class HinagiClient extends Client {
             },
             commands: {
                 reply: () => true,
-                prefix: () => ['hina'],
+                prefix: () => this.config.prefixes,
+                deferReplyResponse: ({ client }) => ({ content: `**${client.me?.username}** is thinking...` }),
                 argsParser: YunaParser()
             }
         });
@@ -29,6 +30,6 @@ export class HinagiClient extends Client {
     public async run(): Promise<void> {
         await this.start();
         await this.uploadCommands();
-        await this.manager.handler.load();
+        await this.manager.load();
     }
 }

@@ -12,7 +12,6 @@ export class Handler extends BaseHandler {
         const eventsDir = resolve('dist', 'lavalink');
         const files = await this.loadFilesK<Lavalink>(await this.getFiles(eventsDir));
 
-
         for await (const file of files) {
             const path = file.path.split(process.cwd()).slice(1).join(process.cwd());
             const event: Lavalink = file.file;
@@ -32,14 +31,5 @@ export class Handler extends BaseHandler {
             if (event.isNode()) this.client.manager.nodeManager.on(event.name, run);
             else if (event.isManager()) this.client.manager.on(event.name, run);
         }
-
-        this.client.logger.info('LavalinkManager loaded');
-    }
-
-    async reloadAll() {
-        this.client.manager.removeAllListeners();
-        this.client.manager.nodeManager.removeAllListeners();
-
-        return await this.load();
     }
 }

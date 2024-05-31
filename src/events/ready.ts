@@ -1,5 +1,5 @@
 import { createEvent } from 'seyfert';
-import { connectDB } from '../utils/functions/connectDB';
+import { connectToDatabase } from '../database';
 
 export default createEvent({
     data: { name: 'botReady', once: true },
@@ -7,6 +7,6 @@ export default createEvent({
         client.logger.info(`Logged in as: ${user.tag}`);
 
         await client.manager.init({ id: user.id, username: user.username });
-        await connectDB(client);
+        await connectToDatabase(client);
     }
 });

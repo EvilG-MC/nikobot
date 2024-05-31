@@ -32,7 +32,9 @@ const options = {
 
 @Declare({
     name: 'play',
-    description: 'Play a song'
+    description: 'Play a song',
+    integrationTypes: ['GuildInstall'],
+    contexts: ['Guild']
 })
 @Options(options)
 export default class PlayCommand extends Command {

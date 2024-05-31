@@ -1,7 +1,7 @@
 import type { Player, Track } from 'lavalink-client';
 
 export async function autoPlayFunction(player: Player, lastTrack: Track) {
-    if (!player.get<boolean>('enabledAutoplay')) return;
+    if (!player.get<boolean | undefined>('enabledAutoplay')) return;
 
     if (lastTrack.info.sourceName === 'spotify') {
         const filtered = player.queue.previous.filter(({ info }) => info.sourceName === 'spotify').slice(0, 5);

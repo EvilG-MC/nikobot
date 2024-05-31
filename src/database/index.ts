@@ -1,16 +1,15 @@
 import type { Mongoose} from 'mongoose';
 import { connect } from 'mongoose';
+import type { UsingClient } from 'seyfert';
 
-const uri = process.env.DATABASE_URI as string;
-
-export async function connectToDatabase(): Promise<Mongoose | undefined> {
+export async function connectToDatabase(client: UsingClient): Promise<Mongoose | undefined> {
     try {
-        console.log('Successfully connected to the database');
-        return await connect(uri, {
+        client.logger.info('Successfully connected to the database');
+        return await connect(process.env.DATABASE_URI!, {
             dbName: 'nikobot'
         });
     } catch (error) {
-        console.error('error when connecting to the database:', error);
+        client.logger.error('error when connecting to the database:', error);
         return undefined;
     }
 }
