@@ -1,4 +1,4 @@
-import { MessageFlags } from 'discord-api-types/v10';
+import { MessageFlags, PollLayoutType } from 'discord-api-types/v10';
 import { Command, CommandContext, Declare, Options, createIntegerOption } from 'seyfert';
 import { EmbedColors } from 'seyfert/lib/common';
 
@@ -65,6 +65,7 @@ export default class VolumeCommand extends Command {
 
         if (volume === 1) {
             await player.pause();
+            await player.setVolume(volume);
             await ctx.editOrReply({
                 embeds: [{
                     description: 'The volume has been set to 1. Because of this, the player has been paused.',
@@ -73,6 +74,7 @@ export default class VolumeCommand extends Command {
             });
         } else if (volume > 1 && player.paused) {
             await player.resume();
+            await player.setVolume(volume);
             await ctx.editOrReply({
                 embeds: [{
                     description: `The volume has been set to ${volume}.`,
@@ -80,5 +82,13 @@ export default class VolumeCommand extends Command {
                 }]
             });
         }
+
+        await player.setVolume(volume);
+        await ctx.editOrReply({
+            embeds: [{
+                description: `The volume has been set to ${volume}.`,
+                color: EmbedColors.Green
+            }]
+        });
     }
 }
