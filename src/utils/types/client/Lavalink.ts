@@ -12,7 +12,7 @@ import type {
     WebSocketClosedEvent
 } from 'lavalink-client';
 import type { UsingClient } from 'seyfert';
-import type { Awaitable } from 'seyfert/lib/common/index.js';
+import type { Awaitable } from 'seyfert/lib/common';
 
 interface DisconnectReason {
     code?: number;

@@ -1,6 +1,6 @@
 import { type APIButtonComponentWithCustomId, ButtonStyle, ComponentType, MessageFlags } from 'discord-api-types/v10';
 import { ActionRow, Button, type Embed, type Message, type WebhookMessage } from 'seyfert';
-import { type InteractionCreateBodyRequest, type InteractionMessageUpdateBodyRequest } from 'seyfert/lib/common/index.js';
+import { type InteractionCreateBodyRequest, type InteractionMessageUpdateBodyRequest } from 'seyfert/lib/common';
 import type { AnyContext } from '../utils/types';
 
 export class EmbedPaginator {
