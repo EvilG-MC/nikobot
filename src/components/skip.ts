@@ -1,5 +1,6 @@
 import { MessageFlags } from 'discord-api-types/v10';
-import { ComponentCommand, ComponentContext } from 'seyfert';
+import type { ComponentContext } from 'seyfert';
+import { ComponentCommand } from 'seyfert';
 
 export default class SkipButton extends ComponentCommand {
     componentType = 'Button' as const;

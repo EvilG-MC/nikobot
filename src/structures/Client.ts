@@ -1,12 +1,13 @@
 import { Client } from 'seyfert';
-import Configuration, { HinagiConfig } from '../config';
+import type { HinagiConfig } from '../config';
+import Configuration from '../config';
 
 import { YunaParser } from '../utils/parser';
 import { Manager } from './Manager';
 
 export class HinagiClient extends Client {
-    readonly config: HinagiConfig = Configuration;
     readonly manager: Manager;
+    readonly config: HinagiConfig = Configuration;
 
     constructor() {
         super({

@@ -9,7 +9,7 @@ import type {
     TrackStartEvent,
     TrackStuckEvent,
     UnresolvedTrack,
-    WebSocketClosedEvent,
+    WebSocketClosedEvent
 } from 'lavalink-client';
 import type { UsingClient } from 'seyfert';
 import type { Awaitable } from 'seyfert/lib/common/index.js';

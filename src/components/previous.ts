@@ -1,7 +1,6 @@
-import { ComponentCommand, ComponentContext } from 'seyfert';
+import type { ComponentContext } from 'seyfert';
+import { ComponentCommand } from 'seyfert';
 import { MessageFlags } from 'discord-api-types/v10';
-
-import { Track } from 'lavalink-client';
 
 export default class PauseButton extends ComponentCommand {
     componentType = 'Button' as const;

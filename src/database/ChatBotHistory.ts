@@ -1,5 +1,6 @@
-import { Content } from '@google/generative-ai';
-import { Document, Schema, model } from 'mongoose';
+import type { Content } from '@google/generative-ai';
+import type { Document} from 'mongoose';
+import { Schema, model } from 'mongoose';
 
 // Define interface for chat part
 

@@ -1,4 +1,4 @@
-import { LavalinkManager, Player } from 'lavalink-client';
+import { LavalinkManager } from 'lavalink-client';
 import { UsingClient } from 'seyfert';
 import { Handler } from './Handler';
 

@@ -11,17 +11,17 @@ export interface HinagiConfig {
         next: string;
         stop: string;
     };
-};
+}
 
 const Configuration: HinagiConfig = {
     color: 0x2b2d31,
     emojis: {
-        error: "❌",
-        next: "⏭️",
-        pause: "⏸️",
-        previous: "⏮️",
-        stop: "⏹️",
-        success: "✅",
+        error: '❌',
+        next: '⏭️',
+        pause: '⏸️',
+        previous: '⏮️',
+        stop: '⏹️',
+        success: '✅'
     },
     nodes: [
         {

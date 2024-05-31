@@ -11,22 +11,22 @@ const options = {
             const { client } = int;
 
             const query = int.getInput();
-            if (!query) return int.respond([{ name: "No results found.", value: "https://youtu.be/dQw4w9WgXcQ?si=8_92jOrFRpPmHdXy" }]);
+            if (!query) return int.respond([{ name: 'No results found.', value: 'https://youtu.be/dQw4w9WgXcQ?si=8_92jOrFRpPmHdXy' }]);
 
             const { tracks, playlist } = await client.manager.search(query);
 
             if (playlist) return int.respond([{
                 name: `Playlist: ${spliceName(playlist.title)}`,
-                value: playlist.uri ?? query,
+                value: playlist.uri ?? query
             }]);
 
             return int.respond(
                 tracks.map(({ info }) => ({
                     name: `${spliceName(info.title)} (Author: ${info.author})`,
-                    value: info.uri,
-                })).slice(0, 5),
+                    value: info.uri
+                })).slice(0, 5)
             );
-        },
+        }
     })
 };
 
@@ -50,7 +50,7 @@ export default class PlayCommand extends Command {
 
         if (!voice)
             return ctx.editOrReply({
-                content: "",
+                content: '',
                 flags: MessageFlags.Ephemeral,
                 embeds: [
                     {
@@ -62,7 +62,7 @@ export default class PlayCommand extends Command {
 
         if (bot && voice.channelId !== bot.channelId)
             return ctx.editOrReply({
-                content: "",
+                content: '',
                 flags: MessageFlags.Ephemeral,
                 embeds: [
                     {
@@ -77,12 +77,12 @@ export default class PlayCommand extends Command {
 
         if (missings.length)
             return ctx.editOrReply({
-                content: "",
+                content: '',
                 flags: MessageFlags.Ephemeral,
                 embeds: [
                     {
-                        description: `I am missing the following permissions: ${missings?.join(', ')}`,
-                        color: client.config.color,
+                        description: `I am missing the following permissions: ${missings.join(', ')}`,
+                        color: client.config.color
                     }
                 ]
             });
@@ -92,12 +92,12 @@ export default class PlayCommand extends Command {
             voiceChannelId: voice.channelId!,
             textChannelId: ctx.channelId!,
             selfDeaf: true,
-            volume: 100,
+            volume: 100
         });
 
         const { loadType, playlist, tracks } = await player.search({ query }, author);
 
-        player.set("commandContext", ctx);
+        player.set('commandContext', ctx);
 
         switch (loadType) {
             case 'empty':
@@ -105,7 +105,7 @@ export default class PlayCommand extends Command {
                 if (!player.queue.current) await player.destroy();
 
                 await ctx.editOrReply({
-                    content: "",
+                    content: '',
                     embeds: [
                         {
                             color: client.config.color,
@@ -122,7 +122,7 @@ export default class PlayCommand extends Command {
 
                 await player.queue.add(tracks);
                 await ctx.editOrReply({
-                    content: "",
+                    content: '',
                     embeds: [
                         {
                             color: client.config.color,
@@ -143,7 +143,7 @@ export default class PlayCommand extends Command {
 
                 await player.queue.add(track);
                 await ctx.editOrReply({
-                    content: "",
+                    content: '',
                     embeds: [
                         {
                             color: client.config.color,

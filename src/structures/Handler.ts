@@ -1,5 +1,5 @@
 import { BaseHandler } from 'seyfert/lib/common';
-import { UsingClient } from 'seyfert';
+import type { UsingClient } from 'seyfert';
 import { resolve } from 'path';
 import { Lavalink } from './Lavalink';
 

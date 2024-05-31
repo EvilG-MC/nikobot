@@ -1,4 +1,5 @@
-import { Mongoose, connect } from 'mongoose';
+import type { Mongoose} from 'mongoose';
+import { connect } from 'mongoose';
 
 const uri = process.env.DATABASE_URI as string;
 

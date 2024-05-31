@@ -1,4 +1,4 @@
-import { AllLavaEvents, LavaEventRun, LavaEventType, LavaManagerEvents, LavaNodeEvents, LavalinkEvent } from '../utils/types';
+import type { AllLavaEvents, LavaEventRun, LavaEventType, LavaManagerEvents, LavaNodeEvents, LavalinkEvent } from '../utils/types';
 
 export class Lavalink<K extends keyof AllLavaEvents = keyof AllLavaEvents> implements LavalinkEvent<K> {
     readonly name: K;

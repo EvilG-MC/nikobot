@@ -1,4 +1,4 @@
-import { UsingClient } from 'seyfert';
+import type { UsingClient } from 'seyfert';
 
 import mongoose from 'mongoose';
 
