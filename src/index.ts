@@ -1,11 +1,5 @@
-import 'dotenv/config';
-import './classes/MongoClient.js';
+import { HinagiClient } from './structures/Client';
 
-import { NikoClient } from './structures/Client.js';
-const client = new NikoClient();
+const client = new HinagiClient();
 
-(async () => {
-    await client.login(process.env.DISCORD_BOT_TOKEN!).then(() => {
-        console.log(`Logged in as ${client.user?.username}!`);
-    });
-})();
+export default client;
