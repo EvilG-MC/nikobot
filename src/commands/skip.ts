@@ -60,6 +60,18 @@ export default class ExampleCommand extends Command {
                 ]
             });
 
+        const autoplay = player.get<boolean>('enabledAutoplay');
+        if (autoplay)
+            return ctx.editOrReply({
+                flags: MessageFlags.Ephemeral,
+                embeds: [
+                    {
+                        description: 'You can\'t skip songs in the autoplay!',
+                        color: client.config.color
+                    }
+                ]
+            });
+
         if (position && position > player.queue.tracks.length)
             return ctx.editOrReply({
                 flags: MessageFlags.Ephemeral,
