@@ -52,6 +52,18 @@ export default class SkipButton extends ComponentCommand {
                 ]
             });
 
+        const autoplay = player.get<boolean>('enabledAutoplay');
+        if (autoplay)
+            return ctx.editOrReply({
+                flags: MessageFlags.Ephemeral,
+                embeds: [
+                    {
+                        description: 'You can\'t skip songs in the autoplay!',
+                        color: client.config.color
+                    }
+                ]
+            });
+
         if (!player.queue.tracks.length)
             return ctx.editOrReply({
                 flags: MessageFlags.Ephemeral,
