@@ -1,13 +1,6 @@
 import { MessageFlags } from 'discord-api-types/v10';
-import { Command, Declare, createBooleanOption, Options, CommandContext, Embed } from 'seyfert';
+import { Command, Declare, CommandContext, Embed } from 'seyfert';
 import { EmbedPaginator } from '../structures/Paginator';
-
-const options = {
-    enabled: createBooleanOption({
-        description: 'Enable or disable the autoplay feature.',
-        required: true
-    })
-};
 
 @Declare({
     name: 'queue',
@@ -15,11 +8,9 @@ const options = {
     integrationTypes: ['GuildInstall'],
     contexts: ['Guild']
 })
-@Options(options)
 export default class AutoplayCommand extends Command {
-    async run(ctx: CommandContext<typeof options>) {
-        const { client, options, member } = ctx;
-        const { enabled } = options;
+    async run(ctx: CommandContext) {
+        const { client, member } = ctx;
 
         const me = ctx.me();
         if (!me) return;
